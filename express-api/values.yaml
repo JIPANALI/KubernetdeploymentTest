@@ -1,3 +1,4 @@
+# values.yaml
 image:
   repository: metavy/express-api
   tag: latest
@@ -6,3 +7,12 @@ image:
 service:
   type: LoadBalancer
   port: 3000
+
+replicaCount: 1
+
+# Optional: Specify whether to create a service account
+serviceAccount:
+  create: true
+  name: "express-api-service-account"  # Optional: Specify service account name if needed
+
+resources: {}
