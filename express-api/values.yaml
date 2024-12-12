@@ -1,6 +1,11 @@
 image:
+<<<<<<< HEAD
   repository: metavy/express-api
   tag: latest
+=======
+  repository: your-dockerhub-username/express-api
+  tag: "12301267858"
+>>>>>>> d44e5e18928c19ac1d6930ed431c26025c626a44
   pullPolicy: IfNotPresent
 
 service:
