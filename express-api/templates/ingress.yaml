@@ -1,19 +1,19 @@
-# express-api/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: express-api
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-spec:
-  rules:
-    - host: express-api.your-domain.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: express-api
-                port:
-                  number: 80
+# # express-api/templates/ingress.yaml
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: express-api
+#   annotations:
+#     nginx.ingress.kubernetes.io/rewrite-target: /
+# spec:
+#   rules:
+#     - host: jipandev-test.com
+#       http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: express-api
+#                 port:
+#                   number: 80
