@@ -16,3 +16,5 @@ serviceAccount:
   name: "express-api-service-account"  # Optional: Specify service account name if needed
 
 resources: {}
+ingress:
+  enabled: true
