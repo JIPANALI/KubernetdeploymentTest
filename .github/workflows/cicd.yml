@@ -30,7 +30,7 @@ jobs:
     # Step 4: Update Helm Chart Values
     - name: Update Helm chart image tag
       run: |
-        sed -i "s/tag: .*/tag: ${{ github.sha }}/" /express-api/values.yaml
+        sed -i "s/tag: .*/tag: ${{ github.sha }}/" /KubernetdeploymentTest/express-api/values.yaml
         git config --global user.name "${{ secrets.MY_GIT_USERNAME }}"
         git config --global user.email "${{ secrets.MY_GIT_EMAIL }}"
         git add /express-api/values.yaml
