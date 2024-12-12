@@ -38,6 +38,7 @@ jobs:
         git push
 
     # # Step 5: Install Argo CD CLI
+    # # Step 5: Install Argo CD CLI
     # - name: Install Argo CD CLI
     #   run: |
     #     curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
