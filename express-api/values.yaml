@@ -1,5 +1,5 @@
 image:
-  repository: your-dockerhub-username/express-api
+  repository: metavy/express-api
   tag: latest
   pullPolicy: IfNotPresent
 
