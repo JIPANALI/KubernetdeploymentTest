@@ -4,16 +4,27 @@ metadata:
   name: express-api
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    kubernetes.io/ingress.class: "nginx"  # Specify the Ingress class here
+    nginx.ingress.kubernetes.io/ssl-redirect: "false" # Disable HTTPS if you're using HTTP
+    kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-    - host: test.xyz  # Your domain name
+    - host: api.jipandev.xyz  # Subdomain
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: express-api  # Service name in your cluster
+                name: express-api
                 port:
-                  number: 80  # The service port
+                  number: 80
+    - host: jipandev.xyz # Root domain
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: express-api
+                port:
+                  number: 80
