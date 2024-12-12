@@ -27,15 +27,15 @@ jobs:
         docker build -t ${{ secrets.DOCKER_USERNAME }}/express-api:${{ github.sha }} .
         docker push ${{ secrets.DOCKER_USERNAME }}/express-api:${{ github.sha }}
 
-    # Step 4: Update Helm Chart Values
-    # - name: Update Helm chart image tag
-    #   run: |
-    #     sed -i "s/tag: .*/tag: ${{ github.sha }}/" /express-api/values.yaml
-    #     git config --global user.name "${{ secrets.MY_GIT_USERNAME }}"
-    #     git config --global user.email "${{ secrets.MY_GIT_EMAIL }}"
-    #     git add /express-api/values.yaml
-    #     git commit -m "Update image tag to ${{ github.sha }}"
-    #     git push
+    Step 4: Update Helm Chart Values
+    - name: Update Helm chart image tag
+      run: |
+        sed -i "s/tag: .*/tag: ${{ github.sha }}/" /express-api/values.yaml
+        git config --global user.name "${{ secrets.MY_GIT_USERNAME }}"
+        git config --global user.email "${{ secrets.MY_GIT_EMAIL }}"
+        git add /express-api/values.yaml
+        git commit -m "Update image tag to ${{ github.sha }}"
+        git push
 
     # # Step 5: Install Argo CD CLI
     # - name: Install Argo CD CLI
