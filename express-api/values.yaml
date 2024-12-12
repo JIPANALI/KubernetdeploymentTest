@@ -1,6 +1,6 @@
 image:
   repository: your-dockerhub-username/express-api
-  tag: "12300951542"
+  tag: "12300964112"
   pullPolicy: IfNotPresent
 
 service:
