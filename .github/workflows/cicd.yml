@@ -27,7 +27,7 @@ jobs:
         docker build -t ${{ secrets.DOCKER_USERNAME }}/express-api:${{ github.sha }} .
         docker push ${{ secrets.DOCKER_USERNAME }}/express-api:${{ github.sha }}
 
-    Step 4: Update Helm Chart Values
+    # Step 4: Update Helm Chart Values
     - name: Update Helm chart image tag
       run: |
         sed -i "s/tag: .*/tag: ${{ github.sha }}/" /express-api/values.yaml
@@ -37,18 +37,17 @@ jobs:
         git commit -m "Update image tag to ${{ github.sha }}"
         git push
 
-    # # Step 5: Install Argo CD CLI
-    # # Step 5: Install Argo CD CLI
-    # - name: Install Argo CD CLI
-    #   run: |
-    #     curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
-    #     chmod +x /usr/local/bin/argocd
+    # Step 5: Install Argo CD CLI
+    - name: Install Argo CD CLI
+      run: |
+        curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+        chmod +x /usr/local/bin/argocd
 
-    # # Step 6: Sync Argo CD
-    # - name: Sync Argo CD
-    #   run: |
-    #     argocd login ${{ secrets.ARGOCD_SERVER }} \
-    #       --username ${{ secrets.ARGOCD_USERNAME }} \
-    #       --password ${{ secrets.ARGOCD_PASSWORD }} \
-    #       --insecure
-    #     argocd app sync express-api
+    # Step 6: Sync Argo CD
+    - name: Sync Argo CD
+      run: |
+        argocd login ${{ secrets.ARGOCD_SERVER }} \
+          --username ${{ secrets.ARGOCD_USERNAME }} \
+          --password ${{ secrets.ARGOCD_PASSWORD }} \
+          --insecure
+        argocd app sync express-api
