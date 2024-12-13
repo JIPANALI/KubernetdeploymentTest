@@ -73,4 +73,4 @@ jobs:
           --username ${{ secrets.ARGOCD_USERNAME }} \
           --password ${{ secrets.ARGOCD_PASSWORD }} \
           --insecure
-        argocd app sync express-api
+        argocd app sync test-kube
