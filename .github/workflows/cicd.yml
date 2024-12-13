@@ -67,6 +67,7 @@ jobs:
         chmod +x /usr/local/bin/argocd
 
     # Step 2: Sync Argo CD
+    # Step 2: Sync Argo CD
     - name: Sync Argo CD
       run: |
         argocd login ${{ secrets.ARGOCD_SERVER }} \
