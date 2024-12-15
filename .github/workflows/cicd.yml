@@ -61,17 +61,18 @@ jobs:
     steps:
     # Step 1: Install Argo CD CLI
     # Step 1: Install Argo CD CLI
-    - name: Install Argo CD CLI
-      run: |
-        curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
-        chmod +x /usr/local/bin/argocd
+    # Step 1: Install Argo CD CLI
+    # - name: Install Argo CD CLI
+    #   run: |
+    #     curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+    #     chmod +x /usr/local/bin/argocd
 
     # Step 2: Sync Argo CD
     # Step 2: Sync Argo CD
-    - name: Sync Argo CD
-      run: |
-        argocd login ${{ secrets.ARGOCD_SERVER }} \
-          --username ${{ secrets.ARGOCD_USERNAME }} \
-          --password ${{ secrets.ARGOCD_PASSWORD }} \
-          --insecure
-        argocd app sync test-kube
+    # - name: Sync Argo CD
+    #   run: |
+    #     argocd login ${{ secrets.ARGOCD_SERVER }} \
+    #       --username ${{ secrets.ARGOCD_USERNAME }} \
+    #       --password ${{ secrets.ARGOCD_PASSWORD }} \
+    #       --insecure
+    #     argocd app sync test-kube
